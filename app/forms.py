@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-
+from fb2parser import *
 
 class PostForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(

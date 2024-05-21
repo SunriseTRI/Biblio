@@ -6,12 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .utils import *
 from django.core.paginator import Paginator
+from fb2parser import *
 
 def get_search(request):
     search_value = request.POST.get("search")
-
-    # Сохранить запрос поиска после срабатывания пагинации
-
     posts = Post.objects.filter(Q(title__startswith=search_value))
     return render(request, "index.html", {"posts": posts})
 
